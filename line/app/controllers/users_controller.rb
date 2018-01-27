@@ -1,9 +1,19 @@
 class UsersController < ApplicationController
   def index
+    @users = User.all
   end
-
+  
+  def talk_list
+    @users = User.all
+  end
+  
+  def talk_room 
+    @users = User.all
+  end
+  
   def show
     @user = User.find(params[:id])
+    @users = User.all
   end
 
   def new

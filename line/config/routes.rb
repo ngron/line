@@ -3,7 +3,13 @@ Rails.application.routes.draw do
   root "topppages#index"
   
   get "signup", to: "users#new"
-  resources :users, only: [:index, :show, :create]
+  resources :users, only: [:index, :show, :create] do
+    member do 
+      get :talk_list
+      get :talk_room
+    end
+  end
+  
   
   get "login", to: "sessions#new"
   post "login", to: "sessions#create"

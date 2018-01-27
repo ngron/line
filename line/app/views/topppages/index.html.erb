@@ -1,3 +1,39 @@
-<h1>LINE</h1>
-<%= link_to "ログイン", login_path %>
-<%= link_to "登録", signup_path %>
+<% if logged_in? %>
+  
+  <div class="col-md-2">
+    <div class="panel panel-default">  
+      <table class="table table-hover">
+        <tr>
+          <th>プロフィール</th>
+        </tr>
+        <tr>
+          <td><%= link_to current_user do %><img src="<%= gravatar_url(current_user, { size:40 }) %>"><%= current_user.name %><% end %></td>
+        </tr>
+        <tr>
+          <th>友だち一覧</th>
+        </tr>
+        
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= link_to user do %><img src="<%= gravatar_url(user, { size:40 }) %>"><%= user.name %><% end %></td>
+          </tr>
+        <% end %>
+      </table>
+
+    </div>  
+  </div>
+  
+  <div class="col-md-8">
+    
+  </div>
+    
+
+<% else %>
+
+  <div class="toppage_field text-center">
+    <img src="images/155291da9644469bf3d4621927a111b6.png">
+    <p><%= link_to "ログイン", login_path, class:"btn btn-primary btn-login" %></p>
+    <p><%= link_to "登録していない方はこちら", signup_path, class:"btn-signup" %></p>
+  </div>
+  
+<% end %>
