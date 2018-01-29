@@ -14,9 +14,11 @@
         </tr>
         
         <% @users.each do |user| %>
-          <tr>
-            <td><%= link_to user do %><img src="<%= gravatar_url(user, { size:40 }) %>"><%= user.name %><% end %></td>
-          </tr>
+          <% unless user == current_user %>
+            <tr>
+              <td><%= link_to user do %><img src="<%= gravatar_url(user, { size:40 }) %>"><%= user.name %><% end %></td>
+            </tr>
+          <% end %>
         <% end %>
       </table>
 

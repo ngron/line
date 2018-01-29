@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     member do 
       get :talk_list
       get :talk_room
+      post :message_create
     end
   end
   
