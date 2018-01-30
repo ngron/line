@@ -1,6 +1,6 @@
 <% if logged_in? %>
   <div class="col-md-2">
-    <div class="sidebar-nav affix">
+    <div class="sidebar-nav">
       <ul class="nav panel panel-default">
         <li><%= link_to root_url do %><i class="fa fa-user-o fa-4x"></i>友だち<% end %></li>
         <li><%= link_to talk_list_user_path(current_user) do %><i class="fa fa-commenting-o fa-4x"></i>トーク<% end %></li>

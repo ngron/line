@@ -1,18 +1,2 @@
-<div class="col-md-2">
-  <div class="panel panel-default">
-    <div class="friend_field">
-      <table class="table table-hover">
-        <tr>
-          <th>トーク</th>
-        </tr>
-        <% @users.each do |user| %>
-          <% unless user == current_user %>
-            <tr>
-              <td><%= link_to talk_room_user_path(user) do %><img src="<%= gravatar_url(user, { size:40 }) %>"><%= user.name %><% end %></td>
-            </tr>
-          <% end %>
-        <% end %>
-      </table>
-    </div>
-  </div>
-</div>
+<!--messageをつくって@messagesをわたすようにもする-->
+<%= render "talk_list" %>
